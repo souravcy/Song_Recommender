@@ -1,13 +1,13 @@
 import pandas as pd
 from sklearn.metrics.pairwise import cosine_similarity
-import spotipy
-from spotipy.oauth2 import SpotifyClientCredentials
-from dotenv import load_dotenv
-import os
+# import spotipy
+# from spotipy.oauth2 import SpotifyClientCredentials
+# from dotenv import load_dotenv
+# import os
 
 class suggest:
-    def configure():
-        load_dotenv()
+    # def configure():
+    #     load_dotenv()
 
     def generate_recommendations(search):
         df=songs.drop(['id','name','artists','indexes'], axis = 1)
@@ -26,9 +26,9 @@ class suggest:
         return name,artists,id
 
     def image_find(id):
-        images=[]
-        for i in range (len(id)):
-            images.append(sp.track(id[i])['album']['images'][0]['url'])
+        images=["ll"]
+        # for i in range (len(id)):
+        #     images.append(sp.track(id[i])['album']['images'][0]['url'])
         return images
 
     def find(songname):
@@ -40,16 +40,16 @@ class suggest:
         return name, artists, images
     
     def trending():
-        name=[]
-        images=[]
-        artists=[]
-        for i in range(5):
-            name.append(sp.playlist('37i9dQZEVXbLZ52XmnySJg')['tracks']['items'][i]['track']['name'])
-            artists.append(sp.playlist('37i9dQZEVXbLZ52XmnySJg')['tracks']['items'][i]['track']['artists'][0]['name'])
-            images.append(sp.track(sp.playlist('37i9dQZEVXbLZ52XmnySJg')['tracks']['items'][i]['track']['id'])['album']['images'][0]['url'])
+        name=["ll"]
+        images=["ll"]
+        artists=["ll"]
+        # for i in range(5):
+        #     name.append(sp.playlist('37i9dQZEVXbLZ52XmnySJg')['tracks']['items'][i]['track']['name'])
+        #     artists.append(sp.playlist('37i9dQZEVXbLZ52XmnySJg')['tracks']['items'][i]['track']['artists'][0]['name'])
+        #     images.append(sp.track(sp.playlist('37i9dQZEVXbLZ52XmnySJg')['tracks']['items'][i]['track']['id'])['album']['images'][0]['url'])
         return name,artists,images    
 
-suggest.configure()
+# suggest.configure()
 songs = pd.read_csv("data/new.csv")
-client_credentials_manager = SpotifyClientCredentials(client_id=os.getenv('CLIENT_ID'), client_secret=os.getenv('CLIENT_SECRET'))
-sp = spotipy.Spotify(client_credentials_manager = client_credentials_manager)
+# client_credentials_manager = SpotifyClientCredentials(client_id=os.getenv('CLIENT_ID'), client_secret=os.getenv('CLIENT_SECRET'))
+# sp = spotipy.Spotify(client_credentials_manager = client_credentials_manager)
