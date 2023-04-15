@@ -1,0 +1,26 @@
+{% extends "layout.html" %} 
+{% block content %}
+<div id="main-body">
+  <form class="form" action="/" method="post">
+    <label for="songname"></label>
+    <input
+      type="text"
+      name="songname"
+      placeholder="Enter song name"
+      class="searchbox"
+      required
+    />
+    <button type="submit" class="searchbutton">SEARCH</button>
+  </form>
+  <div class="heading">Recommended Songs for : {{ name[0]}}</div>
+  <div class="suggest">
+    {% for i in range(name|length) %}
+    <div class="cover">
+      <img class="img" src="{{ images[i] }}" />
+      <div class="name">{{ name[i] }}</div>
+      <div class="artist">{{ artists[i] }}</div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock content %}
