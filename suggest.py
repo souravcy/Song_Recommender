@@ -10,7 +10,6 @@ class suggest:
         return name,artists,images
 
     def generate_recommendations(search):
-        model = joblib.load("model.pkl")
         songs['sim']=model[search].tolist()
         suggestions=songs.sort_values(by=['sim'],ascending=False).iloc[0:6]
         name,artists,images=suggest.generate_songs(suggestions)
@@ -30,4 +29,5 @@ class suggest:
         images=df['image'].to_list()
         return name,artists,images    
 
-songs = pd.read_csv("data/songs.csv")
+songs = pd.read_csv("/home/souravcy/Song_Recommender/data/songs.csv")
+model = joblib.load("/home/souravcy/Song_Recommender/model.pkl")

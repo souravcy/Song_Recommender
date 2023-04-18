@@ -13,4 +13,5 @@ def main():
     name,artists,images=suggest.trending()
     return render_template('index.html',name=name,artists=artists,images=images)
 
-app.run(debug=True)
+if __name__ == '__main__':
+    app.run()
