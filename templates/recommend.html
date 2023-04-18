@@ -14,11 +14,11 @@
   </form>
   <div class="heading">Recommended Songs for : {{ name[0]}}</div>
   <div class="suggest">
-    {% for i in range(name|length) %}
+    {% for i in range(name|length-1) %}
     <div class="cover">
-      <img class="img" src="{{ images[i] }}" />
-      <div class="name">{{ name[i] }}</div>
-      <div class="artist">{{ artists[i] }}</div>
+      <img class="img" src="{{ images[i+1] }}" />
+      <div class="name">{{ name[i+1] }}</div>
+      <div class="artist">{{ artists[i+1] }}</div>
     </div>
     {% endfor %}
   </div>
